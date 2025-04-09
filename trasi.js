@@ -1,8 +1,6 @@
-function scrollCarousel(direction) {
-  const carousel = document.querySelector('.carousel');
-  const scrollAmount = 300;
-  carousel.scrollBy({
-    left: direction * scrollAmount,
-    behavior: 'smooth'
+window.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+      document.getElementById("welcome").style.display = "block";
+    }, 2000);
   });
-}
+
