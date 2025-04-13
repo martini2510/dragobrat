@@ -91,7 +91,60 @@ header{
 }
 
 
+.oaza{
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+    url('img/40.jpg');
+    width: 100%;
+    height: 700px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    font-weight: lighter;
+  }
+
+
+  h1{
+    color: white;
+    font-size: 50px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    font-family: initial;
+    padding: 20px;
+    padding-top: 80px;
+    font-weight: lighter;
+  }
+  .oaza-text{
+    background-color: rgb(255, 255, 255, 0.35);
+    padding: 30px;
+    padding-left: 20px;
+    border-radius: 100px;
+    width: 50%;  
+    
+    margin: 85px auto;
+    height: 240px;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    font-family: initial;
+    display: flex;
+    justify-content: flex-end;
+    font-weight: lighter;
+  
+  }
+  .oaza-text p{
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: -20px;
+    font-weight: lighter;
+  
+  }
+
+
   .hotel-cards {
+    margin-top: 100px;
     display: flex;
     gap: 100px;
     justify-content: center;
@@ -162,7 +215,122 @@ header{
   .details-btn:hover {
     background-color: #b8c2ec;
   }
-
+.trf{
+    background-color: rgb(255, 255, 255, 0.24);
+    padding: 50px;
+    padding-left: 20px;
+    border-radius: 50px;
+    margin-top: 300px;
+    width: 60%;  
+    margin: 100px auto;
+    height: 300px;
+    text-align: left;
+    font-size: 25px;
+    color: white;
+    font-family: initial;
+    display: flex;
+    justify-content: flex-end;
+}
+  .tariff-block {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .tariff {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  
+  .tariff.reverse {
+    flex-direction: row-reverse;
+  }
+  
+  .tariff-info {
+    flex: 1;
+    min-width: 260px;
+    color: white;
+    text-align: center;
+  }
+  
+  .tariff-info h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .tariff-info .price {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .tariff-info ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .tariff-info li {
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+  
+  .carousel {
+    flex: 1;
+    max-width: 500px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+  
+  .carousel img {
+    width: 100%;
+    display: none;
+    transition: opacity 0.5s ease-in-out;
+    border-radius: 12px;
+  }
+  
+  .carousel img.active {
+    display: block;
+  }
+  
+  @media (max-width: 768px) {
+    .tariff {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .tariff.reverse {
+      flex-direction: column;
+    }
+  }
+  .carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+  
+  .carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: auto;
+    transition: opacity 1s ease;
+    z-index: 0;
+    border-radius: 12px;
+    
+  }
+  
+  .carousel img.active {
+    opacity: 1;
+    z-index: 1;
+    position: relative;
+  }
+  
 
 
 
