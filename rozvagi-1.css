@@ -2,6 +2,7 @@ body{
     background-color:#2D3136 ;
     scroll-behavior: smooth;
 }
+
 .header{
     background-color: #D5DFF6;
     color: black;
@@ -33,15 +34,46 @@ body{
     text-align: center;
     font-weight: lighter;
 }
-header{
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-    url('img/39.jpg');
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    position: relative;
+
+
+header {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url('img/39.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  transform-origin: center;
+  transform: scale(1);
+  transition: transform 0.6s ease-in-out;
+  animation: initialZoom 2s ease-out;
+}
+
+@keyframes initialZoom {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.header:hover::before {
+  transform: scale(1.2);
+}
+
 
 .main{
     background-color: rgb(255, 255, 255, 0.24);
@@ -215,22 +247,19 @@ header{
   .details-btn:hover {
     background-color: #b8c2ec;
   }
-.trf{
+
+.tra{
     background-color: rgb(255, 255, 255, 0.24);
-    padding: 50px;
-    padding-left: 20px;
-    border-radius: 50px;
-    margin-top: 300px;
-    width: 60%;  
-    margin: 100px auto;
-    height: 300px;
-    text-align: left;
-    font-size: 25px;
-    color: white;
-    font-family: initial;
+    width: 50%;
+    height: 350px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
     display: flex;
-    justify-content: flex-end;
+    margin: 0 auto;
+    margin-left: 500px;
 }
+
+
   .tariff-block {
     padding: 40px 20px;
     max-width: 1200px;
@@ -278,22 +307,30 @@ header{
   }
   
   .carousel {
-    flex: 1;
-    max-width: 500px;
     position: relative;
     overflow: hidden;
     border-radius: 12px;
+    max-width: 500px;
+    height: auto;
   }
   
   .carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    display: none;
-    transition: opacity 0.5s ease-in-out;
+    height: auto;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 1s ease;
     border-radius: 12px;
+    pointer-events: none;
   }
   
   .carousel img.active {
-    display: block;
+    opacity: 1;
+    z-index: 1;
+    position: relative;
   }
   
   @media (max-width: 768px) {
@@ -385,3 +422,114 @@ header{
     color: #615e5e;
     
   }
+  
+
+  @media (max-width: 768px) {
+    .menu {
+      flex-direction: column;
+      gap: 10px;
+      height: auto;
+      padding: 10px 0;
+    }
+  
+    .menu a {
+      font-size: 16px;
+      border-right: none;
+    }
+  
+    .oaza-text{
+      font-size: 15px;
+    }
+      .main{
+        width: 80%;
+        margin: 80px auto;
+        font-size: 20px;
+      }
+    
+      .mainimg{
+        display: none;
+      }
+    
+    .footer {
+      
+      flex-direction: column;
+      height: auto;
+      gap: 20px;
+    }
+  
+    .footer-section {
+      height: auto;
+      border-right: none;
+      border-bottom: 1px solid gray;
+      padding-bottom: 20px;
+    }
+  
+    .footer-section:last-child {
+      border-bottom: none;
+    }
+  
+    .header {
+      font-size: 30px;
+      padding-left: 10px;
+    }
+    .burger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      z-index: 1001;
+    }
+    
+    .burger span {
+      height: 3px;
+      width: 25px;
+      background: #2D3136;
+      margin: 2px 0;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    
+    .menu-container {
+      display: none;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      position: absolute;
+      top: 45px;
+      left: 0;
+      z-index: 1000;
+      animation: fadeSlide 0.3s ease-in-out forwards;
+    }
+    
+    .menu-container.open {
+      display: flex;
+      justify-content: center;
+    }
+    
+    @media (max-width: 768px) {
+      .burger {
+        display: flex;
+      }
+    
+      nav:not(.menu-container) {
+        display: none;
+      }
+    
+      .menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 20px 0;
+      }
+    
+      .menu a {
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+      }
+    }
+    
+  }
+  
+  
