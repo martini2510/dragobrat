@@ -1,6 +1,9 @@
 body{
     background-color:#2D3136 ;
+    scroll-behavior: smooth;
 }
+
+
 .header{
     background-color: #D5DFF6;
     color: black;
@@ -10,6 +13,46 @@ body{
     font-family: Inter, Extra Bold Italic;
     font-weight: lighter;
 }
+
+/* Загальний стиль для контейнера */
+.container {
+  position: absolute; /* Позиціонуємо контейнер відносно вікна */
+  top: 50%; /* Розташовуємо контейнер по вертикалі по центру */
+  left: 50%; /* Розташовуємо контейнер по горизонталі по центру */
+  transform: translate(-50%, -50%); /* Виправляємо точку відліку для центру */
+  width: 70%; /* Ширина контейнера */
+  height: 300px; /* Висота контейнера */
+  background-color: #d5dff623; /* Напівпрозорий чорний фон */
+  display: flex; /* Використовуємо flex для вирівнювання елементів */
+  justify-content: center; /* Вирівнювання по горизонталі */
+  align-items: center; /* Вирівнювання по вертикалі */
+  border-radius: 40px; /* Закруглені кути */
+  opacity: 0; /* Спочатку контейнер невидимий */
+  animation: slideUp 1s forwards; /* Анімація для висування контейнера знизу */
+}
+
+/* Стиль для тексту */
+.text {
+  font-size: 60px;
+  color: rgba(255, 255, 255, 0.877);
+  margin: 0;
+  
+  font-weight: lighter;
+  text-align: center;
+}
+
+/* Анімація для висування контейнера знизу */
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 100%); /* Початкове положення контейнера (знизу) */
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%); /* Кінцеве положення (в центрі) */
+  }
+}
+
 
 .menu{
     text-decoration: none;
@@ -21,12 +64,14 @@ body{
     box-sizing: border-box;
     margin-top: 0px;
     list-style: none;
-    gap: 200px; 
+     
     color: rgb(255, 255, 255);
     font-weight: lighter;
 }
 .menu a {
+    display: flex;
     border-right: 2px solid #DFE6EE;
+    padding: 0 120px;
     
     text-decoration: none;
     color: rgb(255, 255, 255); 
@@ -34,8 +79,15 @@ body{
     margin-left: 20px;
     margin-right: 20px;
     text-align: center;
+    transition: transform 0.3s ease;
+}
+.menu li:last-child a {
+  border-right: none; /* Прибираємо лінію в останнього елемента */
 }
 
+.menu a:hover{
+  transform: scale(1.1);
+}
 
 header {
   position: relative;
@@ -88,6 +140,10 @@ header::before {
     font-size: 28px;
     color: white;
     font-family: initial;
+    transition: transform 0.5s ease;
+}
+.main:hover{
+  transform: scale(1.1);
 }
 
 .iframe{
@@ -113,7 +169,13 @@ header::before {
   font-size: 20px;
   overflow: hidden;
   padding-bottom: 20px;
+  
 }
+
+.footer-section:hover {
+  transform: scale(1.1);
+}
+
 
 .footer-section {
   flex: 1;
@@ -123,6 +185,7 @@ header::before {
   line-height: 40px;
   top: 20px;
   position: relative;
+  transition: transform 0.3s ease;
   
 }
 .footer-section img{
