@@ -2,7 +2,9 @@ body{
     background-color:#2D3136 ;
     scroll-behavior: smooth;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 .header{
     background-color: #D5DFF6;
     color: black;
@@ -25,6 +27,51 @@ body{
   color: rgb(255, 255, 255);
   font-weight: lighter;
 
+}
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 200px;
+  background-color: #d5dff623;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  opacity: 0;
+  animation: slideUpAndOut 5s forwards;
+  pointer-events: none; /* дозволити кліки крізь контейнер */
+  z-index: 5; /* нижче, ніж у меню */
+}
+/* Стиль для тексту */
+.text {
+  font-size: 80px;
+  color: rgba(255, 255, 255, 0.877);
+  margin: 0;
+  font-weight: lighter;
+  text-align: center;
+}
+
+/* Анімація підйому і зникнення */
+@keyframes slideUpAndOut {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 100%); /* Знизу */
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -50%); /* Центр (під'їхав і став) */
+  }
+  70% {
+    opacity: 1;
+    transform: translate(-50%, -50%); /* Стоїть нерухомо в центрі */
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -150%); /* Виїхав вгору і зник */
+  }
 }
 .menu a:hover{
   transform: scale(1.1);
@@ -488,7 +535,10 @@ header::before {
     .footer-section:last-child {
       border-bottom: none;
     }
-  
+    
+    .text{
+      font-size: 40px;
+    }
     .header {
       font-size: 30px;
       padding-left: 10px;

@@ -2,7 +2,9 @@ body{
     background-color:#2D3136 ;
     scroll-behavior: smooth;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 
 .header{
     background-color: #D5DFF6;
@@ -16,43 +18,52 @@ body{
 
 /* Загальний стиль для контейнера */
 .container {
-  position: absolute; /* Позиціонуємо контейнер відносно вікна */
-  top: 50%; /* Розташовуємо контейнер по вертикалі по центру */
-  left: 50%; /* Розташовуємо контейнер по горизонталі по центру */
-  transform: translate(-50%, -50%); /* Виправляємо точку відліку для центру */
-  width: 70%; /* Ширина контейнера */
-  height: 300px; /* Висота контейнера */
-  background-color: #d5dff623; /* Напівпрозорий чорний фон */
-  display: flex; /* Використовуємо flex для вирівнювання елементів */
-  justify-content: center; /* Вирівнювання по горизонталі */
-  align-items: center; /* Вирівнювання по вертикалі */
-  border-radius: 40px; /* Закруглені кути */
-  opacity: 0; /* Спочатку контейнер невидимий */
-  animation: slideUp 1s forwards; /* Анімація для висування контейнера знизу */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 300px;
+  background-color: #d5dff623;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  opacity: 0;
+  animation: slideUpAndOut 5s forwards;
+  pointer-events: none; /* дозволити кліки крізь контейнер */
+  z-index: 5; /* нижче, ніж у меню */
 }
+
 
 /* Стиль для тексту */
 .text {
   font-size: 60px;
   color: rgba(255, 255, 255, 0.877);
   margin: 0;
-  
   font-weight: lighter;
   text-align: center;
 }
 
-/* Анімація для висування контейнера знизу */
-@keyframes slideUp {
+/* Анімація підйому і зникнення */
+@keyframes slideUpAndOut {
   0% {
     opacity: 0;
-    transform: translate(-50%, 100%); /* Початкове положення контейнера (знизу) */
+    transform: translate(-50%, 100%); /* Знизу */
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -50%); /* Центр (під'їхав і став) */
+  }
+  70% {
+    opacity: 1;
+    transform: translate(-50%, -50%); /* Стоїть нерухомо в центрі */
   }
   100% {
-    opacity: 1;
-    transform: translate(-50%, -50%); /* Кінцеве положення (в центрі) */
+    opacity: 0;
+    transform: translate(-50%, -150%); /* Виїхав вгору і зник */
   }
 }
-
 
 .menu{
     text-decoration: none;
@@ -218,6 +229,9 @@ h5{
 
 
 @media (max-width: 768px) {
+  .text{
+    font-size: 33px;
+  }
   .menu {
     flex-direction: column;
     gap: 10px;
